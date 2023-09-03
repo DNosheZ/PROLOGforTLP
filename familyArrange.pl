@@ -28,8 +28,8 @@ tia(X, Y) :- hijo(Y,Z),hermanos(X,Z),mujer(X).
 sobrino(X, Y) :- hijo(X,Z),hermanos(Y,Z).
 primos(X,Y) :- hijo(X,H),hijo(Y,L),hermanos(H,L).
 
-%bisabuelo(BAP, X) :- ...
-%bisabuela(BAP, X) :- ...
+bisabuelo(BAP, X) :- hijo(Z,BAP),hijo(Z,Y),hijo(X,Y),hombre(BAP).
+bisabuela(BAP, X) :- hijo(Z,BAP),hijo(Y,Z),hijo(X,Y),mujer(BAP).
 
 %NO BORRAR
 isEqual(A,B):- A==B.
