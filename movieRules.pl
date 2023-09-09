@@ -41,13 +41,13 @@ mayor(Pelicula,Actor,Actriz,Anio,Genero,Director,Pais):- Anio>2000,Actor=antonio
 %Aca va su codigo
 %cree una regla en prolog que permita encontrar el director de una pelicula donde haya actuado jordi mollà, 
 %en qué año se exhibió y de qué país fue la película.
-encuentra(Actor,Anio,Pais,Director):- director(Pelicula, Director),pelicula(_, Pelicula, Anio, Pais, Genero).
+encuentra(Actor,Anio,Pais,Director):- Actor=jordi_mollà,director(Pelicula, Director),pelicula(_, Pelicula, Anio, Pais, _),actor(_, Actor, _).
 %Aca va su codigo
 %cree una regla en prolog que permita encontrar las películas de género drama, dando año de exhibición, director,actores y actrices, que tengan actores y actrices.
-peliculas(Genero,Anio,Pelicula,Director,Actores,Actrices):- Genero=drama,pelicula(_, Pelicula, Anio, Pais,Genero),actor(Pelicula, Actores, _),actriz(Pelicula, Actrices, _).
+peliculas(Genero,Anio,Pelicula,Director,Actores,Actrices):- Genero=drama,director(Pelicula,Director),pelicula(_, Pelicula, Anio, _,Genero),actor(Pelicula, Actores, _),actriz(Pelicula, Actrices, _).
 %Aca va su codigo
 %cree una regla en prolog que permita encontrar las películas producidas después de 2012, dando año de exhibición,director.
-despues(Anio,Pelicula,Director):- pelicula(_, Pelicula, Anio, Pais, _),director(Pelicula,Director), Anio>2012.
+despues(Anio,Pelicula,Director):- pelicula(_, Pelicula, Anio, _, _),director(Pelicula,Director), Anio>2012.
 % NO BORRAR
 isEqual(A,B):- A==B.
 ope(N,E,R):- isEqual(N,1),mayor(R,E,penélope_cruz,_,_,_,_).
