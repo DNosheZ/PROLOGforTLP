@@ -37,14 +37,14 @@ genero(A,R):- pelicula(_,A,_,_,B), R = B.
 %Aca va su codigo
 %Encuentre las películas realizadas después del del 2000 y en las que hayan participado los actores Antonio Banderas y Penélope Cruz; 
 %adicionalmente, suministre el nombre del director, el género de la película, el año, y el país de producción.
-mayor(Pelicula,Actor,Actriz,Anio,Genero,Director,Pais):- Anio>2000,Actor=antonio_banderas,Actriz=penélope_cruz,pelicula(_, Pelicula, Anio, Pais, Genero),actor(Pelicula,Actor,_),actriz(Pelicula,Actriz,_),director(Pelicula,Director). 
+mayor(Pelicula,Actor,Actriz,Anio,Genero,Director,Pais):- Anio>2000,pelicula(_, Pelicula, Anio, Pais, Genero),actor(Pelicula,Actor,_),actriz(Pelicula,Actriz,_),director(Pelicula,Director). 
 %Aca va su codigo
 %cree una regla en prolog que permita encontrar el director de una pelicula donde haya actuado jordi mollà, 
 %en qué año se exhibió y de qué país fue la película.
 encuentra(Actor,Anio,Pais,Director):- Actor=jordi_mollà,director(Pelicula, Director),pelicula(_, Pelicula, Anio, Pais, _),actor(_, Actor, _).
 %Aca va su codigo
 %cree una regla en prolog que permita encontrar las películas de género drama, dando año de exhibición, director,actores y actrices, que tengan actores y actrices.
-peliculas(Genero,Anio,Pelicula,Director,Actores,Actrices):- Genero=drama,director(Pelicula,Director),pelicula(_, Pelicula, Anio, _,Genero),actor(Pelicula, Actores, _),actriz(Pelicula, Actrices, _).
+peliculas(Genero,Anio,Pelicula,Director,Actores,Actrices):- Genero=drama,director(Pelicula,Director),pelicula(_,Pelicula,Anio,_,Genero),actor(Pelicula,Actores,_),actriz(Pelicula,Actrices, _).
 %Aca va su codigo
 %cree una regla en prolog que permita encontrar las películas producidas después de 2012, dando año de exhibición,director.
 despues(Anio,Pelicula,Director):- pelicula(_, Pelicula, Anio, _, _),director(Pelicula,Director), Anio>2012.
