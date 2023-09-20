@@ -1,6 +1,9 @@
-tramo(Medellin,Cartagena,Avion,200000).
-tramo(Cartagena,Maicao,Bus,60000).
-tramo(Maicao,Barrancabermeja,Bus,130000).
-tramo(Cali,Popayan,Bus,20000).
-tramo(Popayan,Puerto_Asis,Bus,90000).
-tramo(Puerto_Asis,Mitu,Lancha,150000).
+tramo(medellin,cartagena,Avion,200000).
+tramo(cartagena,bogota,Bus,40000).
+tramo(bogota,cali,Bus,130000).
+tramo(cali,popayan,Bus,20000).
+tramo(cali,puerto_asis,Bus,90000).
+tramo(puerto_asis,mitu,Lancha,150000).
+tramo(bogota,bucaramanga,Bus,58000).
+tramo(bucaramanga,neiva,Avion,210000).
+tramo(neiva,cali,Bus,81000).
