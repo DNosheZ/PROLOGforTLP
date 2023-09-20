@@ -1,0 +1,34 @@
+% HECHOS
+num(1). num(2). num(3). num(4).
+
+% REGLAS
+unicos(P, Q, R, S) :- num(P), num(Q), num(R), num(S), \+ P=Q, \+ P=R, \+ P=S, \+ Q=R, \+ Q=S, \+ R=S.
+
+% IDEA ESTRUCTURA DE LA SOLUCION
+sudoku(R11, R12, R13, R14,
+       R21, R22, R23, R24,
+       R31, R32, R33, R34,
+       R41, R42, R43, R44) :-
+    solucion(R11, R12, R13, R14, R21, R22, R23, R24, R31, R32, R33, R34, R41, R42, R43, R44),
+    imprimirSudoku(R11, R12, R13, R14),
+    imprimirSudoku(R21, R22, R23, R24),
+    imprimirSudoku(R31, R32, R33, R34),
+    imprimirSudoku(R41, R42, R43, R44).
+
+% IMPRIMIR SUDOKU
+imprimirSudoku(P, Q, R, S) :- write(' '), write(P), write('  '), write(Q), write('  '), write(R), write('  '), write(S), nl.
+
+% SOLUCION
+solucion(R11, R12, R13, R14, R21, R22, R23, R24, R31, R32, R33, R34, R41, R42, R43, R44) :-
+    unicos(R11, R12, R13, R14), % Primera fila
+    unicos(R21, R22, R23, R24), % Segunda fila
+    unicos(R31, R32, R33, R34), % Tercera fila
+    unicos(R41, R42, R43, R44), % Cuarta fila
+    unicos(R11, R21, R31, R41), % Primera columna
+    unicos(R12, R22, R32, R42), % Segunda columna
+    unicos(R13, R23, R33, R43), % Tercera columna
+    unicos(R14, R24, R34, R44), % Cuarta columna
+    unicos(R11, R12, R21, R22), % Bloque superior izquierdo
+    unicos(R13, R14, R23, R24), % Bloque superior derecho
+    unicos(R31, R32, R41, R42), % Bloque inferior izquierdo
+    unicos(R33, R34, R43, R44). % Bloque inferior derecho
